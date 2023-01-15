@@ -1,0 +1,28 @@
+{% extends 'accounts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form }}
+    <div class="alert alert-danger">
+
+        <p class="  "> Are you sure you want to delete this {{ item }}? </p>
+
+        <a  class="btn btn-sm btn-info" href="{% url 'home' %}">
+            Cancel
+        </a>
+    
+        <a class="btn btn-sm btn-danger" href="{% url 'delete_order' item.id %}" name="Confirm">Confirm</a>
+
+    </div>
+
+</form>
+
+
+{% endblock %}
