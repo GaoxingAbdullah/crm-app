@@ -3,7 +3,7 @@ from struct import pack_into
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from accounts.form import OrderForm, CustomerForm
-
+from django.forms import inlineformset_factory
 from accounts.models import Customer, Order, Product
 
 def home(request):
@@ -33,19 +33,24 @@ def customer(request, customerId):
     return render(request, 'accounts/customer.html', context)
 
 
-def create_order(request):
-    form = OrderForm()
+def create_order(request, pk):
+    OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=10)
+    customer = Customer.objects.get(id=pk)
+    formset = OrderFormSet(queryset=Order.objects.none(), instance=customer)
+    #form = OrderForm(initial={"customer": customer})
     if request.method == 'POST':
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
+        formset = OrderFormSet(request.POST, instance=customer)
+        #form = OrderForm(request.POST)
+        if formset.is_valid():
+            formset.save()
             return redirect('/')
-    context = {"form": form}
+        
+    context = {"formset": formset}
     return render(request, 'accounts/order_form.html', context)
 
 
-def update_order(request, orderId):
-    order = Order.objects.get(id=orderId)
+def update_order(request, pk):
+    order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)
     if request.method == 'POST':
         form = OrderForm(request.POST, instance=order)
@@ -60,7 +65,7 @@ def delete_order(request, pk):
     order = Order.objects.get(id=pk)
     if request.method == "POST":
         order.delete()
-        redirect('/')
+        return redirect('/')
         
     context = {"item":order}
     return render(request, 'accounts/delete.html', context)

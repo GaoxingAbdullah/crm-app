@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<form method="POST">
+<form  method="POST" action="{% url 'delete_order' item.id %}" >
 
     {% csrf_token %}
 
@@ -18,7 +18,7 @@
             Cancel
         </a>
     
-        <a class="btn btn-sm btn-danger" href="{% url 'delete_order' item.id %}" name="Confirm">Confirm</a>
+        <input  type="submit" class="btn btn-sm btn-danger" name="Confirm" value="Confirm">
 
     </div>
 

@@ -1,18 +1,15 @@
-{% extends 'accounts/base.html' %}
+{% extends 'accounts/base.html' %} {% load static %} {% block content %}
 
-{% load static %}
+<div class="row">
+  <div class="col-md-8">
+    <div class="card card-body">
+      <form method="POST">
+        {% csrf_token %} {{ form }}
 
-{% block content %}
-
-<form method="POST">
-
-    {% csrf_token %}
-
-    {{ form }}
-
-    <button class="btn btn-danger" type="submit" >Submit</button>
-
-</form>
-
+        <button class="btn btn-danger" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
