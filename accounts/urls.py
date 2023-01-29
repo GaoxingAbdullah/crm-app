@@ -11,4 +11,10 @@ urlpatterns = [
     path('delete_order/<str:pk>/', views.delete_order, name='delete_order'),
     
     path('create_customer/', views.create_customer, name='create_customer'),
+    
+    
+    path('user/', views.userPage, name='user'),
+    path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
+    path('register/', views.registerUser, name='register'),
 ]
