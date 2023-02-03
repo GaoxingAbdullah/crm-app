@@ -13,6 +13,8 @@ urlpatterns = [
     path('create_customer/', views.create_customer, name='create_customer'),
     
     
+    path('account/', views.accountSettings, name='account'),
+    
     path('user/', views.userPage, name='user'),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
