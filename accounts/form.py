@@ -8,12 +8,15 @@ from .models import Order, Customer
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = {'customer', 'product', 'status'}
+        fields = '__all__'
+       # fields = {'customer', 'product', 'status'}
         
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = {'name', 'email', 'phone'}
+        fields = '__all__'
+        exclude = {'user'}
+        #fields = {'name', 'email', 'phone'}
         
 class UserCreateForm(UserCreationForm):
     class Meta:
