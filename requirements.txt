@@ -1,0 +1,2 @@
+pytest-django
+django-filter
