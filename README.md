@@ -1,13 +1,14 @@
 # crm-app
 Customer Management App
-This application use to manage customers in vendor store.
-
-**Features** 
--- Add Customer
--- Update Customer information
--- Delete customer 
--- Manage customer orders 
-.
-.
-.
+A customer management app is a software application that is used to manage
+ customer information, interactions, and data. 
+ 
+ The goal of this app is to improve customer relationships 
+ and streamline business processes. 
+ 
+ Some common features of this app include:
+ Oders management, 
+ lead tracking, 
+ sales tracking, 
+ customer service management, and communication tools.
 

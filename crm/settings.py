@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    
+    'accounts.apps.AccountsConfig',
+    
+    'django_filters',
     
 ]
 
@@ -78,8 +81,12 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'crm',
+        'USER': 'postgres',
+        'PASSWORD': 'Abdallah2014@',
+        'HOST': 'localhost',
+        'POST': "5432"
     }
 }
 
@@ -126,7 +133,28 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#SMTP Configuration 
+
+#for gmail 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your email'
+# EMAIL_HOST_PASSWORD = 'your password'
+
+#for yahoo mail
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.mail.yahoo.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = "your email"
+# EMAIL_HOST_PASSWORD = 'your password'
