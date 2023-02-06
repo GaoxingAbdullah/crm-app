@@ -12,6 +12,10 @@ class ModelTesting(TestCase):
         
         self.tag = Tag.objects.create(name="food")
         
+        self.product = Product.objects.create(
+            name="BBQ Pizza", price=20.5, category="Indoor",  description="Something", 
+        )
+        
     def test_customer_model(self):
         data = self.customer
         self.assertTrue(isinstance(data, Customer))
@@ -21,3 +25,8 @@ class ModelTesting(TestCase):
         data = self.tag 
         self.assertTrue(isinstance(data, Tag))
         self.assertEqual(str(data), 'food')
+        
+    def test_product_model(self):
+        data = self.product
+        self.assertTrue(isinstance(data, Product))
+        self.assertEqual(str(data), 'BBQ Pizza')
