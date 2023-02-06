@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'crm',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'POST': "5432"
     }
 }
 
@@ -141,8 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #for gmail 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
+# EMAIL_HOST = ''
+# EMAIL_PORT = 
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'your email'
 # EMAIL_HOST_PASSWORD = 'your password'
@@ -150,7 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #for yahoo mail
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.mail.yahoo.com'
-# EMAIL_PORT = 587
+# EMAIL_HOST = ''
+# EMAIL_PORT = 
 # EMAIL_HOST_USER = "your email"
 # EMAIL_HOST_PASSWORD = 'your password'
