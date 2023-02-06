@@ -3,3 +3,4 @@ django-filter
 psycopg2
 Pillow
 flake8
+coverage 
