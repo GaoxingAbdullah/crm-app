@@ -2,3 +2,4 @@ pytest-django
 django-filter
 psycopg2
 Pillow
+flake8
