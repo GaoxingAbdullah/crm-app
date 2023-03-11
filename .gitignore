@@ -1,2 +1,4 @@
 .coverage
 db.sqlite3
+accounts/*__pycache__
+venv
